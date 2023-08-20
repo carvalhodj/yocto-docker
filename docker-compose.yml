@@ -1,0 +1,11 @@
+version: "3"
+services:
+  ubuntu-jelly:
+    build: .
+    image: "ubuntu_2204"
+    container_name: "yocto-compose"
+    stdin_open: true
+    tty: true
+    volumes:
+      - "./container_tmp:/home/user/"
+

@@ -1,0 +1,10 @@
+# criar o container a partir de um dockerfile
+sudo docker build --file dockerfile_focal --tag ubuntu_2204 .
+# entrar container usando o ID do container de nome 'yocto-compose' como user comum
+sudo docker exec -it $(docker ps | awk '/yocto-compose/ {print $1}') /bin/bash
+# entrar no container como root
+sudo docker exec -it -u 0 $(docker ps | awk '/yocto-compose/ {print $1}') /bin/bash
+# subir os containers usando docker compose
+sudo docker-compose up -d
+# parar e remover os containers ativos usando docker compose
+sudo docker-compose down
